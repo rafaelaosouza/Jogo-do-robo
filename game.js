@@ -63,6 +63,18 @@ function renderGrid() {
         cell.classList.add('robot');
         cell.textContent = '🤖';
       }
+
+      if (gridData[robot.y][robot.x] === 'END') {
+        alert(`🏁 Você chegou ao fim!\nValor final: ${robot.value}\nPassos: ${robot.steps}`);
+        robot = {
+          x: 0,
+          y: 0,
+          value: 0,
+          steps: 0
+        };
+        renderGrid();
+        return;
+      }
       
       gridEl.appendChild(cell);
     }
